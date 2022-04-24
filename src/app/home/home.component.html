@@ -1,0 +1,24 @@
+<br>
+<div class="container">
+<table *ngIf="books.length != 0" class="table table-striped">
+  <thead>
+  <tr>
+    <th >Author</th>
+    <th >Title</th>
+    <th >ISBN</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let book of books">
+    <td>{{book.author}}</td>
+    <td>{{book.title}}</td>
+    <td>{{book.isbn}}</td>
+    <button (click)="onDelete(book)">Delete</button>
+  </tr>
+</tbody>
+</table>
+
+<div *ngIf="books.length == 0">
+  No records found
+</div>
+</div>

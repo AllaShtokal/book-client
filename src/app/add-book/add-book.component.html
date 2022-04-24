@@ -1,0 +1,36 @@
+ 
+<div class="container">
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+  <h3>Add book to list: </h3>
+  
+  <div >
+    <label for="author" class="form-label">Author</label>
+    <input id="author" type="text" formControlName="author">
+    <div *ngFor="let errorMessage of errorMessages">
+      <div class="error" *ngIf="errorMessage.field == 'author'">
+        {{errorMessage.message}}
+      </div>
+    </div>
+  </div>
+  <div >
+    <label for="title" class="form-label">Title</label>
+    <input id="title" type="text" formControlName="title">
+    <div class="error" *ngFor="let errorMessage of errorMessages">
+      <div *ngIf="errorMessage.field == 'title'">
+        {{errorMessage.message}}
+      </div>
+    </div>
+  </div>
+  <div >
+    <label for="isbn" class="form-label">ISBN</label>
+    <input id="isbn" type="text" formControlName="isbn">
+    <div class="error" *ngFor="let errorMessage of errorMessages">
+      <div *ngIf="errorMessage.field == 'isbn'">
+        {{errorMessage.message}}
+      </div>
+    </div>
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
+</div>
